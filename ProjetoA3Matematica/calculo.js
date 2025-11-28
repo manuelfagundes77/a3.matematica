@@ -132,14 +132,14 @@ export function determinante3x3(m) {
 
   // Montando a explicação detalhada com sinais
  const passo = `
-  <b>Cálculos da matriz 3x3:</b><br><br>
+  <b>Cálculos da matriz 3x3 utilizando a Regra de Sarrus:</b><br><br>
 
   <b>Diagonais principais:</b><br>
-  ${a} × ${e} × ${i} + ${b} × ${f} × ${g} + ${c} × ${d} × ${h}<br>
+  ${a} × ${e} × ${i} <b>+</b> ${b} × ${f} × ${g} <b>+</b> ${c} × ${d} × ${h}<br>
   = <b>${dp1}</b> + <b>${dp2}</b> + <b>${dp3}</b> = <b>${somaDP}</b><br><br>
 
   <b>Diagonais secundárias:</b><br>
-  ${c} × ${e} × ${g} + ${a} × ${f} × ${h} + ${b} × ${d} × ${i}<br>
+  ${c} × ${e} × ${g} <b>+</b> ${a} × ${f} × ${h} <b>+</b> ${b} × ${d} × ${i}<br>
   = <b>${ds1}</b> + <b>${ds2}</b> + <b>${ds3}</b> = <b>${somaDS}</b><br><br>
 
   <b>Determinante:</b><br>
@@ -153,12 +153,12 @@ export function determinante3x3(m) {
   return { det, passo };
 }
 
-
+//função recebe a matriz e posição do elemento
 export function calcularCofator(matriz, i, j) {
   const sub = gerarSubmatriz(matriz, i, j);
   const { det } = determinante3x3(sub); // determinante real da submatriz
 
-  const expoente = i + j + 2; // +2 porque i,j são índices 0-based, mas a fórmula usa 1-based
+  const expoente = i + j + 2; // +2 porque i,j são índices do JS, mas a fórmula usa 1
   const sinal = ((i + j) % 2 === 0 ? 1 : -1); // sinal do cofator
   const cofator = sinal * det;
 
@@ -185,10 +185,14 @@ export function determinanteFinalLaplace(matriz, escolha) {
   // 🔹 Fórmula simbólica bonita com subscritos
   let formulaSimbolica = "<p><b>Expansão de Laplace (fórmula geral):</b></p><p>Det = ";
 
+
+
+  // Aqui aplicamos a fórmula final da expansão de Laplace
+  // soma de todos os produtos elemento × cofator.
   resultados.forEach((item, idx) => {
     const { cofator, passoCofator } = calcularCofator(matriz, item.i, item.j);
-    const produto = item.elemento * cofator;
-    determinanteFinal += produto;
+    const produto = item.elemento * cofator; // Elemento da linha ou coluna vezes o cofator
+    determinanteFinal += produto; //  soma os temos para resultado final
 
     // Detalhes de cada elemento
     passoFinal += `

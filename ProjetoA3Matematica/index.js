@@ -5,12 +5,12 @@ import {
   escolherLinhaOuColuna
 } from "./calculo.js";
 
-document.getElementById("btnCalcular").addEventListener("click", () => {
+document.getElementById("btnCalcular").addEventListener("click", () => { //inicia o botao e chama as funçoes 
   limparResultado();
   document.getElementById("resultado").style.display = "block";
 
   const matriz = lerMatriz();
-  mostrarMatriz("matriz-original", matriz);
+  mostrarMatriz("matriz-original", matriz); // função que reescreve a matriz digitada
 
   const escolha = escolherLinhaOuColuna(matriz); //Escolher linha ou coluna com mais zeros
   mostrarLinhaOuColunaEscolhida(matriz, escolha, document.getElementById("linhaOuColuna"));//destaca em vermelho a linha ou coluna escolhida

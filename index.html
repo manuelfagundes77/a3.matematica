@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Calculadora</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>   
+    <h1>Determinante 4x4 - Método de Laplace</h1>
+
+  <table>
+    <tbody>
+      <tr>
+        <td><input type="number" id="m11"></td>
+        <td><input type="number" id="m12"></td>
+        <td><input type="number" id="m13"></td>
+        <td><input type="number" id="m14"></td>
+      </tr>
+      <tr>
+        <td><input type="number" id="m21"></td>
+        <td><input type="number" id="m22"></td>
+        <td><input type="number" id="m23"></td>
+        <td><input type="number" id="m24"></td>
+      </tr>
+      <tr>
+        <td><input type="number" id="m31"></td>
+        <td><input type="number" id="m32"></td>
+        <td><input type="number" id="m33"></td>
+        <td><input type="number" id="m34"></td>
+      </tr>
+      <tr>
+        <td><input type="number" id="m41"></td>
+        <td><input type="number" id="m42"></td>
+        <td><input type="number" id="m43"></td>
+        <td><input type="number" id="m44"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button id="btnCalcular">Calcular Determinante (Laplace)</button>
+
+   <div id="resultado" style="display:none; margin-top:20px;">
+
+    <h2>📘 Resultado da Expansão de Laplace</h2>
+
+    <div id="matriz-original" class="bloco-resultado">
+      <h3>Matriz Original:</h3>
+    </div>
+
+    <div id="linhaOuColuna" class="bloco-resultado">
+      <h3>📊 Linha ou Coluna Escolhida:</h3>
+    </div>
+
+    <div id="detalhesElementos" class="bloco-resultado">
+      <h3>🧩 Cálculos de Cada Elemento (Submatrizes, Cofatores e Menores):</h3>
+    </div>
+
+    <div id="passoFinal" class="bloco-resultado">
+      <h3></h3>
+    </div>
+
+    <div id="valorFinal" class="bloco-resultado">
+      <h2>✅ Determinante Final: <span id="detFinalValor"></span></h2>
+    </div>
+
+  </div>
+
+ 
+ 
+  <script src="index.js" type="module" >
+    
+  </script>
+   
+</body>
+</html>
